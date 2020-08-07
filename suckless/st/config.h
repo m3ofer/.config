@@ -26,7 +26,7 @@ char *vtiden = "\033[?6c";
 
 /* Kerning / character bounding-box multipliers */
 static float cwscale = 1.0;
-static float chscale = 1.0;
+static float chscale = 0.86;
 
 /*
  * word delimiter string
@@ -97,23 +97,23 @@ float alpha = 1;
 static const char *colorname[] = {
 	  /* 8 normal colors */
 "#1c1c24", /* black   */
-"#ff5555", /* red     */
+"#fb4245", /* red     */
 "#50fa7b", /* green   */
-"#f1fa8c", /* yellow  */
-"#bd93f9", /* blue    */
-"#ff79c6", /* magenta */
+"#f0fa8b", /* yellow  */
+"#49b9fe", /* blue    */
+"#fb4cb3", /* magenta */
 "#8be9fd", /* cyan    */
-"#bbbbbb", /* white   */
+"#ededec", /* white   */
 
 /*right colors */
- "#44475a", /* black   */
- "#ff5555", /* red     */
+ "#555555", /* black   */
+ "#fb4245", /* red     */
  "#50fa7b", /* green   */
- "#f1fa8c", /* yellow  */
- "#bd93f9", /* blue    */
- "#ff79c6", /* magenta */
+ "#f0fa8b", /* yellow  */
+ "#49b9fe", /* blue    */
+ "#fb4cb3", /* magenta */
  "#8be9fd", /* cyan    */
- "#ffffff", /* white   */
+ "#ededec", /* white   */
 
 	[255] = 0,
 	/* more colors can be added after 255 to use with DefaultXX */
