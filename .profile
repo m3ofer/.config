@@ -16,7 +16,7 @@ compton -c &
 dunst &
 xset r rate 300 50 &
 unclutter &
-nitrogen --restore &
+feh --bg-scale /home/hamza/pic/wall/black_dark_shadow-773518.jpg
 setxkbmap fr &
 numlockx on &
 sudo rmmod pcspkr &
