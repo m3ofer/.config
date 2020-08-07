@@ -1,0 +1,23 @@
+super + d
+	dmenu_run -sb "#eb0735" -nb "#1c1c24" -c -l 20 -i -p "Search:"
+
+XF86AudioRaiseVolume
+	pulsemixer --change-volume +5 ; refbar
+XF86AudioLowerVolume
+	pulsemixer --change-volume -5 ; refbar
+XF86AudioMute
+	pulsemixer --toggle-mute ; refbar
+super + F1
+	shut.sh
+super + F2
+	vid.sh
+super + F3
+	readpdf.sh
+super + F4
+	pic.sh
+super + r
+	st -e ranger
+super + w
+	draw
+super + o
+	chromium
