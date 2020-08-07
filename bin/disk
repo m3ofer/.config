@@ -1,0 +1,3 @@
+#!/bin/bash
+a=$(df -h /home | awk 'FNR==2{print $4}')
+echo -e "^b#e5eaf0^^c#000000^  $a ^b#1c1c24^" 

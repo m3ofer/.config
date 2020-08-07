@@ -1,0 +1,9 @@
+#!/bin/sh
+
+action=$(echo -e "Camera\nvideo\nExit" | dmenu -l 3 -i -p "Choose to record or on camera:")
+
+case $action in
+    "Camera")  mpv --no-cache --no-osc --no-input-default-bindings --input-conf=/dev/null --title=mpvfloat $(ls /dev/video[0,2,4,6,8] | tail -n 1)& notify-send "started recording " ;;
+    "video") ffmpeg -y -f x11grab -s 1366x768 -i :0.0 -f alsa -i default out.mkv & notify-send "started recording ";;
+    *) ;;
+esac

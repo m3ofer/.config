@@ -1,0 +1,12 @@
+#!/bin/bash
+vol="$(pulsemixer --get-volume | awk '{print $1}')"
+m="$(pulsemixer --get-mute)"
+if [[ $m == 1 ]]; then
+	echo "^b#e1717d^^c#000000^ ﱝ $vol ^b#1c1c24^"
+elif [[ $vol > 60 ]]; then 
+       echo "^b#e1717d^^c#000000^  ${vol} ^b#1c1c24^"
+elif [[ $vol == 0 ]]; then 
+       echo "^b#e1717d^^c#000000^  ${vol} ^b#1c1c24^"
+else
+       echo "^b#e1717d^^c#000000^  ${vol} ^b#1c1c24^"
+fi

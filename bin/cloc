@@ -1,0 +1,4 @@
+#!/bin/bash
+echo -e "^b#80a1c0^^c#000000^   $(date '+%Y-%m-%d   %I:%M%p')^b##1c1c24^ "
+
+

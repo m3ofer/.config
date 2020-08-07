@@ -1,0 +1,9 @@
+#!/bin/bash
+i=$(cat /sys/class/net/eno1/operstate)
+x="$(cat /proc/net/wireless | awk '{ print $3 }' | xargs | cut -d " " -f3 | cut -d "." -f1)"
+
+if [[ $x == 0 && $i == 'down' ]]; then
+       echo "^b#93e6cc^^c#000000^ 睊 $x ^b#1c1c24^" 
+else
+       echo "^b#93e6cc^^c#000000^ 直 $x ^b#1c1c24^" 
+fi	

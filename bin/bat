@@ -1,0 +1,29 @@
+#!/bin/bash
+              f="$(cat /sys/class/power_supply/BAT0/capacity)"
+              x="$(cat /sys/class/power_supply/BAT0/capacity)"
+	      p="$(cat /sys/class/power_supply/ADP1/online)"
+if [[ $p == 0 ]]; then	
+      	      for x in /sys/class/power_supply/BAT0/capacity;
+       	do
+       	case "$(cat $x)" in
+       		100|9[0-9])	echo -e "^b#a3bd8d^^c#000000^  $f ^b#1c1c24^" ;;
+       		8[0-9]|7[0-9])	echo -e "^b#a3bd8d^^c#000000^  $f ^b#1c1c24^" ;;
+       		6[0-9]|5[0-9])	echo -e "^b#a3bd8d^^c#000000^  $f ^b#1c1c24^" ;;
+       		4[0-9]|3[0-9])	echo -e "^b#a3bd8d^^c#000000^  $f ^b#1c1c24^" ;;
+       		*)	echo "^b#a3bd8d^^c#000000^  $f ^b#1c1c24^ " ;;
+       	esac
+       done 
+else
+
+      	      for x in /sys/class/power_supply/BAT0/capacity;
+       	do
+       	case "$(cat $x)" in
+       		100|9[0-9])	echo "^b#a3bd8d^^c#000000^  ﮣ ^b#1c1c24^" ;;
+       		8[0-9]|7[0-9])	echo "^b#a3bd8d^^c#000000^  ﮣ ^b#1c1c24^" ;;
+       		6[0-9]|5[0-9])	echo "^b#a3bd8d^^c#000000^  ﮣ ^b#1c1c24^" ;;
+       		4[0-9]|3[0-9])	echo "^b#a3bd8d^^c#000000^  ﮣ ^b#1c1c24^" ;;
+       		*)		echo "^b#a3bd8d^^c#000000^  ﮣ ^b#1c1c24^" ;;
+       	esac
+       done 
+
+fi
