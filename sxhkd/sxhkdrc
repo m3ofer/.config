@@ -21,3 +21,11 @@ super + w
 	draw
 super + o
 	chromium
+super + Return
+	st
+super + e
+	emoji.sh
+super + n
+	st -e nmcpcpp
+super + w
+	draw
