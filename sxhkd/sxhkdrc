@@ -2,11 +2,11 @@ super + d
 	dmenu_run -sb "#eb0735" -nb "#1c1c24" -c -l 20 -i -p "Search:"
 
 XF86AudioRaiseVolume
-	pulsemixer --change-volume +5 ; refbar
+	pulsemixer --change-volume +5 ; refbar 
 XF86AudioLowerVolume
 	pulsemixer --change-volume -5 ; refbar
 XF86AudioMute
-	pulsemixer --toggle-mute ; refbar
+	pulsemixer --toggle-mute ; refbar && notify-send "ﱝ sound muted"
 super + F1
 	shut.sh
 super + F2
@@ -17,15 +17,16 @@ super + F4
 	pic.sh
 super + r
 	st -e ranger
-super + w
-	draw
 super + o
 	chromium
-super + Return
-	st
 super + e
 	emoji.sh
 super + n
 	st -e nmcpcpp
-super + w
+super + x
 	draw
+
+super + Return
+	st
+button3
+	xmenu.sh
