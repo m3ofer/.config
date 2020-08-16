@@ -1,0 +1,73 @@
+#!/bin/bash
+cl(){
+	echo "^b#80a1c0^^c#000000^   $(date '+%Y-%m-%d   %I:%M%p') "
+}
+ba(){
+	
+              f="$(cat /sys/class/power_supply/BAT0/capacity)"
+              x="$(cat /sys/class/power_supply/BAT0/capacity)"
+	      p="$(cat /sys/class/power_supply/ADP1/online)"
+if [[ $p == 0 ]]; then	
+      	      for x in /sys/class/power_supply/BAT0/capacity;
+       	do
+       	case "$(cat $x)" in
+       		100|9[0-9])	echo -e "^b#a3bd8d^^c#000000^   $f ^b#1c1c24^" ;;
+       		8[0-9]|7[0-9])	echo -e "^b#a3bd8d^^c#000000^   $f ^b#1c1c24^" ;;
+       		6[0-9]|5[0-9])	echo -e "^b#a3bd8d^^c#000000^   $f ^b#1c1c24^" ;;
+       		4[0-9]|3[0-9])	echo -e "^b#a3bd8d^^c#000000^   $f ^b#1c1c24^" ;;
+       		*)	echo "^b#a3bd8d^^c#000000^   $f ^b#1c1c24^" ;;
+       	esac
+       done 
+else
+
+      	      for x in /sys/class/power_supply/BAT0/capacity;
+       	do
+       	case "$(cat $x)" in
+       		100|9[0-9])	echo "^b#a3bd8d^^c#000000^   ﮣ ^b#1c1c24^" ;;
+       		8[0-9]|7[0-9])	echo "^b#a3bd8d^^c#000000^   ﮣ ^b#1c1c24^" ;;
+       		6[0-9]|5[0-9])	echo "^b#a3bd8d^^c#000000^   ﮣ ^b#1c1c24^" ;;
+       		4[0-9]|3[0-9])	echo "^b#a3bd8d^^c#000000^   ﮣ ^b#1c1c24^" ;;
+       		*)		echo "^b#a3bd8d^^c#000000^   ﮣ ^b#1c1c24^" ;;
+       	esac
+       done 
+
+fi
+}
+vo(){
+vol="$(pulsemixer --get-volume | awk '{print $1}')"
+m="$(pulsemixer --get-mute)"
+if [[ $m == 1 ]]; then
+	echo "^b#e1717d^^c#000000^ ﱝ $vol ^b#1c1c24^"
+elif [[ $vol > 60 ]]; then 
+       echo "^b#e1717d^^c#000000^  ${vol} ^b#1c1c24^"
+elif [[ $vol == 0 ]]; then 
+       echo "^b#e1717d^^c#000000^  ${vol} ^b#1c1c24^"
+else
+       echo "^b#e1717d^^c#000000^  ${vol} ^b#1c1c24^"
+fi
+}
+n(){
+i=$(cat /sys/class/net/eno1/operstate)
+x="$(cat /proc/net/wireless | awk '{ print $3 }' | xargs | cut -d " " -f3 | cut -d "." -f1)"
+
+if [[ $x == 0 && $i == 'down' ]]; then
+       echo "^b#93e6cc^^c#000000^ 睊 $x ^b#1c1c24^" 
+else
+       echo "^b#93e6cc^^c#000000^ 直 $x ^b#1c1c24^" 
+fi	
+}
+di(){
+a=$(df -h /home | awk 'FNR==2{print $4}')
+echo -e "^b#e5eaf0^^c#000000^  $a ^b#1c1c24^" 
+}
+pa(){
+b=$(pacman -Q | wc -l)
+echo "^b#e6e600^^c#000000^   $b ^b#1c1c24^"
+}
+mu(){
+	echo -e "^b#b38ead^^c#000000^ ﭵ ^b#ffffff^^c#000000^ $(mpc current) ^b#1c1c24^"
+}
+while true; do
+	xsetroot -name "^b#1c1c24^ $(mu) $(pa) $(di) $(n) $(vo) $(ba) $(cl)"
+	sleep 1m
+done &
